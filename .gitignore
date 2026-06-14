@@ -1,0 +1,17 @@
+# Microsoft Office files - excluded from GitHub Pages build
+*.docx
+*.xlsx
+*.pptx
+*.doc
+*.xls
+*.ppt
+
+# Temporary files
+*.tmp
+*.bak
+~$*
+
+# OS files
+.DS_Store
+desktop.ini
+Thumbs.db
