@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>รายงานธรรมาภิบาลข้อมูล (Data Governance) - สทร.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Action Bar (hidden on print) -->
+  <header class="navbar no-print">
+    <div class="navbar-brand">
+      <svg class="brand-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+        <line x1="4" y1="22" x2="4" y2="15"></line>
+      </svg>
+      <div class="brand-text">
+        <span class="brand-title">Data Governance Report</span>
+        <span class="brand-subtitle">สถาบันวิจัยและพัฒนาเทคโนโลยีระบบราง (องค์การมหาชน)</span>
+      </div>
+    </div>
+    <div class="navbar-actions">
+      <button class="btn btn-primary" onclick="window.print()">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 6 2 18 2 18 9"></polyline>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+        พิมพ์รายงาน / บันทึก PDF
+      </button>
+    </div>
+  </header>
+
+  <!-- Sidebar & Main Content Wrapper -->
+  <div class="app-container">
+    
+    <!-- Sidebar Navigation (hidden on print) -->
+    <aside class="sidebar no-print">
+      <div class="sidebar-info">
+        <span class="badge badge-success">ร่างเอกสารสำหรับผู้บริหาร</span>
+        <p class="sidebar-date">อัปเดตล่าสุด: 14 มิถุนายน 2569</p>
+      </div>
+      <nav class="sidebar-menu">
+        <a href="#summary" class="menu-item active" data-tab="summary">
+          <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          บทสรุปผู้บริหาร
+        </a>
+        <a href="#framework" class="menu-item" data-tab="framework">
+          <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+          กรอบอ้างอิงหลัก
+        </a>
+        <a href="#gap" class="menu-item" data-tab="gap">
+          <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          วิเคราะห์ช่องว่าง (Gap)
+        </a>
+        <a href="#timeline" class="menu-item" data-tab="timeline">
+          <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          แผนดำเนินงาน & Gantt
+        </a>
+        <a href="#proposals" class="menu-item" data-tab="proposals">
+          <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          ประเด็นเสนอผู้บริหาร
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <p>จัดทำโดย: ฝ่ายเลขานุการ<br>คณะทำงาน Data Governance</p>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- Report Header Page (For PDF print only or top of screen) -->
+      <section class="print-header">
+        <div class="print-logo-container">
+          <div class="logo-box">
+            <svg class="rail-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 80 H90 M15 70 H85 M20 60 H80 M30 20 L15 80 M70 20 L85 80 M50 20 V80" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="50" cy="30" r="10" stroke="currentColor" stroke-width="4" fill="white"/>
+            </svg>
+          </div>
+          <h1>รายงานกรอบแนวทางและแผนดำเนินงานด้านธรรมาภิบาลข้อมูล</h1>
+          <h3>สถาบันวิจัยและพัฒนาเทคโนโลยีระบบราง (องค์การมหาชน) (สทร.)</h3>
+          <div class="divider"></div>
+          <p class="doc-metadata">เอกสารประกอบการเสนอความคืบหน้าเบื้องต้นต่อผู้บริหาร • มิถุนายน 2569</p>
+        </div>
+      </section>
+
+      <!-- TAB 1: EXECUTIVE SUMMARY -->
+      <section id="summary-section" class="report-section active-tab-content">
+        <div class="section-card">
+          <div class="section-header">
+            <h2>1. บทสรุปสำหรับผู้บริหาร (Executive Summary)</h2>
+            <span class="badge badge-accent">สรุปประเด็นสำคัญ</span>
+          </div>
+          <div class="section-body">
+            <p class="highlight-text">
+              สทร. เร่งวางรากฐานการบริหารจัดการข้อมูลเพื่อหนุนนโยบายเทคโนโลยีระบบราง คณะทำงานฯ ได้บูรณาการ **กรอบอ้างอิงภาครัฐ** เพื่อจัดทำแผนงานที่ **กระชับและปฏิบัติได้ทันที**
+            </p>
+            
+            <div class="grid-2">
+              <div class="card card-outline">
+                <div class="card-icon-header">
+                  <div class="icon-circle icon-primary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  </div>
+                  <h4><span class="text-highlight">DGA</span> : กรอบหลัก (Framework)</h4>
+                </div>
+                <p>ยึดมาตรฐาน **ประกาศธรรมาภิบาลข้อมูลภาครัฐ** เพื่อความถูกต้องตามกฎหมายและระเบียบดิจิทัล</p>
+              </div>
+
+              <div class="card card-outline">
+                <div class="card-icon-header">
+                  <div class="icon-circle icon-accent">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  </div>
+                  <h4><span class="text-accent-color">สกมช.</span> : แนวปฏิบัติจริง (Template)</h4>
+                </div>
+                <p>นำต้นแบบ **นโยบายความมั่นคงปลอดภัย** มาประยุกต์ยกร่างคู่มือปฏิบัติ สิทธิ์การเข้าถึง และวงจรข้อมูล</p>
+              </div>
+            </div>
+
+            <h3 class="subsection-title">สถานะความพร้อมปัจจุบันของ สทร.</h3>
+            <div class="progress-status-container">
+              <div class="status-summary-item">
+                <div class="number text-success">10%</div>
+                <div class="label font-bold">แต่งตั้งคณะทำงานแล้ว</div>
+              </div>
+              <div class="status-summary-item">
+                <div class="number text-danger">0%</div>
+                <div class="label font-bold">บัญชีข้อมูลกลาง & Metadata</div>
+              </div>
+              <div class="status-summary-item">
+                <div class="number text-danger">0%</div>
+                <div class="label font-bold">ความปลอดภัย & การคุมสิทธิ์</div>
+              </div>
+            </div>
+
+            <div class="alert alert-info">
+              🎯 **ข้อเสนอแนะเร่งด่วน:** ควรรีบอุดช่องว่างด้วยการทำ **สำรวจข้อมูล (Data Survey)** เพื่อพัฒนา **บัญชีข้อมูลกลาง (Data Catalog)** และ **เกณฑ์จัดสิทธิ์ (Access Control)** ผ่านแผนดำเนินงาน 6 เดือนนี้
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: FRAMEWORK -->
+      <section id="framework-section" class="report-section">
+        <div class="section-card">
+          <div class="section-header">
+            <h2>2. กรอบอ้างอิงและการนำมาปรับใช้กับ สทร.</h2>
+            <span class="badge badge-primary">ตารางที่ 1</span>
+          </div>
+          <div class="section-body">
+            <p class="section-desc">การปรับใช้กรอบมาตรฐานจาก **DGA** และ **สกมช.** ให้สอดคล้องกับโครงสร้างและข้อมูลระบบรางของ สทร.</p>
+            
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 80px;">ลำดับ</th>
+                    <th style="width: 250px;">ประเด็นอ้างอิง</th>
+                    <th>ใจความสำคัญ</th>
+                    <th style="width: 300px;">การนำมาปรับใช้ใน สทร.</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-row-group">
+                    <td colspan="4" class="group-title">กรอบแนวทาง DGA (โครงสร้างหลักภาครัฐ)</td>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td><strong>ธรรมาภิบาลข้อมูลภาครัฐ</strong></td>
+                    <td>มาตรฐานการกำกับดูแลและจัดการข้อมูลภาครัฐ</td>
+                    <td>ใช้เป็น **เกณฑ์ตั้งต้นเชิงนโยบาย** ของ สทร.</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td><strong>บทบาทหน้าที่ความรับผิดชอบ</strong></td>
+                    <td>กำหนดโครงสร้างผู้ดูแลข้อมูลระดับต่างๆ</td>
+                    <td>แต่งตั้งผู้ดูแลระบบราง: **Data Owner / Steward**</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td><strong>แผนและการวัดผล</strong></td>
+                    <td>รอบเวลาวางแผน ติดตาม และตรวจสอบผล</td>
+                    <td>จัดทำ **รอบรายงานผลรายไตรมาส** เสนอผู้บริหาร</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td><strong>คุณภาพข้อมูล (Data Quality)</strong></td>
+                    <td>ข้อมูลต้องถูกต้อง ครบถ้วน ปลอดภัย</td>
+                    <td>จัดทำ **Checklist ตรวจคุณภาพ** ก่อนแชร์ข้อมูล</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td><strong>การจำแนกหมวดหมู่ข้อมูล</strong></td>
+                    <td>จัดกลุ่มและคัดกรองข้อมูลตามระดับสิทธิ์</td>
+                    <td>แบ่งข้อมูลเป็น: **เปิดเผยทั่วไป, ใช้ภายใน, ลับ**</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td><strong>บัญชีข้อมูล & Metadata</strong></td>
+                    <td>มีสารบัญชุดข้อมูลและคำอธิบายชัดเจน</td>
+                    <td>สร้าง **Data Catalog** ข้อมูลวิจัยระบบรางกลาง</td>
+                  </tr>
+                  
+                  <tr class="table-row-group">
+                    <td colspan="4" class="group-title">แนวปฏิบัติ สกมช. (ต้นแบบนโยบายและความปลอดภัย)</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td><strong>นโยบายต้นแบบจริง</strong></td>
+                    <td>โครงสร้างเอกสารประกาศและข้อบังคับ</td>
+                    <td>ใช้เป็น **Template ยกร่างประกาศนโยบาย** สทร.</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td><strong>วงจรชีวิตข้อมูล (Lifecycle)</strong></td>
+                    <td>การเก็บ ใช้ เผยแพร่ และทำลายอย่างปลอดภัย</td>
+                    <td>กำหนดเกณฑ์ตั้งแต่ **เริ่มจัดเก็บจนถึงการทำลายข้อมูล**</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td><strong>การจัดชั้นและสิทธิ์เข้าถึง</strong></td>
+                    <td>การคุมความปลอดภัยข้อมูลอ่อนไหว/PDPA</td>
+                    <td>สร้างตารางสิทธิ์ **Access Matrix** คุมสิทธิ์การเปิดดู/แก้ไข</td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td><strong>การใช้และแลกเปลี่ยนข้อมูล</strong></td>
+                    <td>ข้อตกลงและกระบวนการส่งต่อข้อมูลภายนอก</td>
+                    <td>วาง **Workflow อนุมัติส่งต่อข้อมูล** ให้ปลอดภัย</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: GAP ANALYSIS -->
+      <section id="gap-section" class="report-section">
+        <div class="section-card">
+          <div class="section-header">
+            <h2>3. ตารางวิเคราะห์ช่องว่างการดำเนินงาน (Gap Analysis)</h2>
+            <span class="badge badge-warning">ตารางที่ 2</span>
+          </div>
+          <div class="section-body">
+            <p class="section-desc">ประเมินเปรียบเทียบมาตรฐานกับสถานะจริงในปัจจุบัน เพื่อชี้จุดที่ต้องปรับปรุงเร่งด่วน</p>
+            
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 80px;">ลำดับ</th>
+                    <th style="width: 220px;">ประเด็นที่ต้องมี</th>
+                    <th style="width: 200px;">สถานะของ สทร.</th>
+                    <th>ช่องว่างที่ขาดอยู่ (Gap)</th>
+                    <th style="width: 260px;">แนวทางแก้ไข</th>
+                  </tr>
+                </thead>
+                <tbody id="gap-table-body">
+                  <tr>
+                    <td>1</td>
+                    <td><strong>คณะทำงาน DG</strong></td>
+                    <td><span class="status-badge status-complete">แต่งตั้งคณะทำงานแล้ว</span></td>
+                    <td>ยังไม่มีผู้ดูแลปฏิบัติการระดับกลุ่มงานย่อย</td>
+                    <td>ระบุบทบาทและมอบหมายความรับผิดชอบรายฝ่าย</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td><strong>เจ้าของข้อมูล (Data Owner)</strong></td>
+                    <td><span class="status-badge status-missing">ยังไม่มีผู้รับผิดชอบ</span></td>
+                    <td>ขาดผู้มีอำนาจตรวจสอบและอนุมัติข้อมูลแต่ละฝ่าย</td>
+                    <td>**สำรวจข้อมูล** และแต่งตั้ง **Data Owner** รายฝ่าย</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td><strong>บัญชีข้อมูล (Data Catalog)</strong></td>
+                    <td><span class="status-badge status-missing">กระจัดกระจายตามระบบ</span></td>
+                    <td>ข้อมูลวิจัยและดิจิทัลไม่มีบัญชีกลางคอยเชื่อมโยง</td>
+                    <td>รวบรวมทำสารบัญ **Data Catalog** กลางสถาบัน</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td><strong>คำอธิบายข้อมูล (Metadata)</strong></td>
+                    <td><span class="status-badge status-missing">ไม่มีฟอร์มมาตรฐาน</span></td>
+                    <td>ไม่มีแบบฟอร์มกลางอธิบายความหมายข้อมูล</td>
+                    <td>จัดทำ **Template Metadata** สำหรับทุกชุดข้อมูล</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td><strong>การจัดชั้นความลับข้อมูล</strong></td>
+                    <td><span class="status-badge status-missing">ไม่มีเกณฑ์กลาง</span></td>
+                    <td>ขาดการแยกประเภทความลับข้อมูลดิจิทัลที่ชัดเจน</td>
+                    <td>วางเกณฑ์จัดระดับชั้นความปลอดภัย (4 ระดับ)</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td><strong>สิทธิการเข้าถึงข้อมูล</strong></td>
+                    <td><span class="status-badge status-partial">จำกัดตามโปรแกรม</span></td>
+                    <td>สิทธิ์การเข้าใช้งานขึ้นอยู่กับผู้ดูแลระบบแต่ละโปรแกรม</td>
+                    <td>ทำตารางสิทธิ์กลาง **Access Control Matrix**</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td><strong>ขั้นตอนเปิดเผยข้อมูล</strong></td>
+                    <td><span class="status-badge status-missing">ไม่มีเกณฑ์อนุมัติ</span></td>
+                    <td>ไม่มีขั้นตอนชัดเจนก่อนส่งมอบข้อมูลให้หน่วยงานภายนอก</td>
+                    <td>วางเกณฑ์และ **กระบวนการพิจารณาเปิดเผยข้อมูล**</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td><strong>ตรวจสอบคุณภาพข้อมูล</strong></td>
+                    <td><span class="status-badge status-partial">ตรวจตามภารกิจ</span></td>
+                    <td>ขาดเครื่องมือวัดมาตรฐานคุณภาพข้อมูลขององค์กร</td>
+                    <td>ทำคู่มือและ **Checklist คุณภาพข้อมูล**</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td><strong>การติดตามและรายงาน</strong></td>
+                    <td><span class="status-badge status-partial">มีโครงสร้างหลัก</span></td>
+                    <td>ยังไม่มีการกำหนดเวลาและแบบรายงานผลที่เป็นระบบ</td>
+                    <td>กำหนดการรายงานผู้บริหาร **ทุกไตรมาส**</td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td><strong>การปรับปรุงต่อเนื่อง</strong></td>
+                    <td><span class="status-badge status-missing">ยังไม่มีรอบทบทวน</span></td>
+                    <td>ยังไม่กำหนดรอบเวลาปรับเปลี่ยนแผนตามบริบทใหม่</td>
+                    <td>กำหนดทบทวนแผนงานอย่างน้อย **ปีละ 1 ครั้ง**</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <div class="interactive-panel no-print">
+              <h4>จำลองสถานะความพร้อมล่าสุด (Interactive Tracker)</h4>
+              <p>สามารถกดปรับเปลี่ยนสถานะประเด็นต่างๆ เพื่อดูผลการประเมินภาพรวมที่เปลี่ยนไปบนแดชบอร์ดด้านบน</p>
+              <div class="interactive-controls">
+                <select id="gap-select-item" class="form-select">
+                  <option value="0">1. คณะทำงาน Data Governance</option>
+                  <option value="1">2. เจ้าของข้อมูล (Data Owner)</option>
+                  <option value="2">3. บัญชีข้อมูลองค์กร (Data Catalog)</option>
+                  <option value="3">4. คำอธิบายข้อมูล (Metadata)</option>
+                  <option value="4">5. การจัดประเภท/ชั้นข้อมูล</option>
+                  <option value="5">6. สิทธิการเข้าถึงข้อมูล</option>
+                  <option value="6">7. กระบวนการเปิดเผยข้อมูล</option>
+                  <option value="7">8. คุณภาพข้อมูล (Data Quality)</option>
+                  <option value="8">9. การติดตามและรายงานผล</option>
+                  <option value="9">10. การปรับปรุงอย่างต่อเนื่อง</option>
+                </select>
+                <select id="gap-select-status" class="form-select">
+                  <option value="complete">ดำเนินการเสร็จสิ้น (Complete)</option>
+                  <option value="partial">กำลังดำเนินการ (In Progress)</option>
+                  <option value="missing">ยังไม่ได้ดำเนินการ (Not Started)</option>
+                </select>
+                <button class="btn btn-secondary" onclick="updateGapStatus()">อัปเดตสถานะ</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: TIMELINE ROADMAP -->
+      <section id="timeline-section" class="report-section">
+        <div class="section-card">
+          <div class="section-header">
+            <h2>4. แผนงานและปฏิทินดำเนินงาน (6-Month Roadmap)</h2>
+            <span class="badge badge-accent">แผนภาพ Gantt & ปฏิทินงาน</span>
+          </div>
+          <div class="section-body">
+            
+            <h3 class="subsection-title" style="margin-top:0;">1. แผนภาพเส้นเวลาการดำเนินงาน (Gantt Chart)</h3>
+            <p class="section-desc">แสดงช่วงเวลาดำเนินงานหลัก 4 ระยะ ตลอดระยะเวลา 6 เดือน</p>
+            
+            <!-- Beautiful Visual Gantt Chart (Pure HTML/CSS Grid) -->
+            <div class="gantt-chart">
+              <div class="gantt-header">
+                <div class="gantt-label-col">กลุ่มงาน / กิจกรรมหลัก</div>
+                <div class="gantt-month-col">เดือน 1</div>
+                <div class="gantt-month-col">เดือน 2</div>
+                <div class="gantt-month-col">เดือน 3</div>
+                <div class="gantt-month-col">เดือน 4</div>
+                <div class="gantt-month-col">เดือน 5</div>
+                <div class="gantt-month-col">เดือน 6</div>
+              </div>
+              <div class="gantt-body">
+                <div class="gantt-row">
+                  <div class="gantt-label-col">
+                    <span class="gantt-stream-title">1. วางรากฐาน & มอบหมายบทบาท</span>
+                    <span class="gantt-stream-owner">เลขานุการฯ / คณะทำงาน DG</span>
+                  </div>
+                  <div class="gantt-bar-area">
+                    <div class="gantt-bar stream-1" style="grid-column: 1 / span 2;">
+                      ตั้งกรอบแนวทาง & ทบทวนคณะทำงาน
+                    </div>
+                  </div>
+                </div>
+                <div class="gantt-row">
+                  <div class="gantt-label-col">
+                    <span class="gantt-stream-title">2. สำรวจข้อมูล & จัดบัญชีกลาง</span>
+                    <span class="gantt-stream-owner">ทุกกลุ่มงาน / ฝ่ายไอที</span>
+                  </div>
+                  <div class="gantt-bar-area">
+                    <div class="gantt-bar stream-2" style="grid-column: 2 / span 2;">
+                      สำรวจชุดข้อมูล & จัดทำ Data Catalog
+                    </div>
+                  </div>
+                </div>
+                <div class="gantt-row">
+                  <div class="gantt-label-col">
+                    <span class="gantt-stream-title">3. วางเกณฑ์มาตรฐาน & การคุมสิทธิ์</span>
+                    <span class="gantt-stream-owner">ฝ่ายไอที / เจ้าของข้อมูล</span>
+                  </div>
+                  <div class="gantt-bar-area">
+                    <div class="gantt-bar stream-3" style="grid-column: 3 / span 3;">
+                      Metadata / จัดชั้นความลับ / Access Matrix
+                    </div>
+                  </div>
+                </div>
+                <div class="gantt-row">
+                  <div class="gantt-label-col">
+                    <span class="gantt-stream-title">4. ยกร่างนโยบาย & ประกาศใช้</span>
+                    <span class="gantt-stream-owner">เลขานุการฯ / คณะทำงาน / ผู้บริหาร</span>
+                  </div>
+                  <div class="gantt-bar-area">
+                    <div class="gantt-bar stream-4" style="grid-column: 6 / span 1;">
+                      ร่างระเบียบ & เสนอบอร์ดอนุมัติใช้
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="subsection-title">2. รายละเอียดปฏิทินงานแบบกระชับ (Action Plan Calendar)</h3>
+            
+            <div class="month-filters no-print">
+              <button class="month-btn active" data-month="all">แสดงทั้งหมด</button>
+              <button class="month-btn" data-month="1">เดือน 1</button>
+              <button class="month-btn" data-month="2">เดือน 2</button>
+              <button class="month-btn" data-month="3">เดือน 3</button>
+              <button class="month-btn" data-month="4">เดือน 4</button>
+              <button class="month-btn" data-month="5">เดือน 5</button>
+              <button class="month-btn" data-month="6">เดือน 6</button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table timeline-table">
+                <thead>
+                  <tr>
+                    <th style="width: 60px;">ลำดับ</th>
+                    <th style="width: 100px;">ระยะเวลา</th>
+                    <th style="width: 250px;">กิจกรรมที่ต้องดำเนินงาน</th>
+                    <th>วัตถุประสงค์สั้นๆ</th>
+                    <th style="width: 180px;">ผู้รับผิดชอบหลัก</th>
+                    <th style="width: 180px;">ผลลัพธ์ที่จะได้</th>
+                  </tr>
+                </thead>
+                <tbody id="timeline-table-body">
+                  <tr data-month="1">
+                    <td>1</td>
+                    <td><span class="month-badge">เดือนที่ 1</span></td>
+                    <td><strong>ศึกษากรอบอ้างอิง</strong></td>
+                    <td>สร้างฐานอ้างอิงจาก **DGA** และ **สกมช.**</td>
+                    <td>เลขานุการฯ / กลุ่มดิจิทัลฯ</td>
+                    <td><span class="result-badge">ตารางวิเคราะห์กรอบฯ</span></td>
+                  </tr>
+                  <tr data-month="1">
+                    <td>2</td>
+                    <td><span class="month-badge">เดือนที่ 1</span></td>
+                    <td><strong>ทบทวนคณะทำงาน</strong></td>
+                    <td>กำหนดอำนาจสั่งการและผู้ร่วมตัดสินใจ</td>
+                    <td>เลขานุการคณะทำงาน</td>
+                    <td><span class="result-badge">ตารางบทบาทหน้าที่</span></td>
+                  </tr>
+                  <tr data-month="1">
+                    <td>3</td>
+                    <td><span class="month-badge">เดือนที่ 1-2</span></td>
+                    <td><strong>นิยามบทบาทข้อมูล</strong></td>
+                    <td>ระบุหน้าที่ **Data Owner** / **Steward**</td>
+                    <td>คณะทำงาน Data Governance</td>
+                    <td><span class="result-badge">ร่างมอบหมายบทบาท</span></td>
+                  </tr>
+                  <tr data-month="2">
+                    <td>4</td>
+                    <td><span class="month-badge">เดือนที่ 2</span></td>
+                    <td><strong>สำรวจชุดข้อมูลสำคัญ</strong></td>
+                    <td>ทราบแหล่งและปริมาณข้อมูลของสถาบัน</td>
+                    <td>ผู้แทนทุกกลุ่มงาน สทร.</td>
+                    <td><span class="result-badge">รายการสำรวจชุดข้อมูล</span></td>
+                  </tr>
+                  <tr data-month="2">
+                    <td>5</td>
+                    <td><span class="month-badge">เดือนที่ 2-3</span></td>
+                    <td><strong>แต่งตั้ง Data Owner</strong></td>
+                    <td>หาตัวผู้รับผิดชอบอนุมัติข้อมูลรายฝ่าย</td>
+                    <td>กลุ่มงานย่อย / คณะทำงาน</td>
+                    <td><span class="result-badge">คำสั่งแต่งตั้งทางการ</span></td>
+                  </tr>
+                  <tr data-month="3">
+                    <td>6</td>
+                    <td><span class="month-badge">เดือนที่ 3</span></td>
+                    <td><strong>ทำบัญชีข้อมูลกลาง</strong></td>
+                    <td>รวบรวมสารบัญข้อมูลวิจัยระบบราง</td>
+                    <td>กลุ่มพัฒนาดิจิทัลระบบราง</td>
+                    <td><span class="result-badge">**Data Catalog**</span></td>
+                  </tr>
+                  <tr data-month="3">
+                    <td>7</td>
+                    <td><span class="month-badge">เดือนที่ 3-4</span></td>
+                    <td><strong>ออกแบบ Metadata</strong></td>
+                    <td>สร้างฟอร์มอธิบายโครงสร้างข้อมูลสากล</td>
+                    <td>กลุ่มพัฒนาดิจิทัลระบบราง</td>
+                    <td><span class="result-badge">**Metadata Template**</span></td>
+                  </tr>
+                  <tr data-month="4">
+                    <td>8</td>
+                    <td><span class="month-badge">เดือนที่ 4</span></td>
+                    <td><strong>จัดชั้นความลับข้อมูล</strong></td>
+                    <td>แยกเกณฑ์ข้อมูลสาธารณะ/ข้อมูลความลับ</td>
+                    <td>กลุ่มดิจิทัลฯ / กลุ่มบริหาร</td>
+                    <td><span class="result-badge">เกณฑ์การจำแนกข้อมูล</span></td>
+                  </tr>
+                  <tr data-month="4">
+                    <td>9</td>
+                    <td><span class="month-badge">เดือนที่ 4-5</span></td>
+                    <td><strong>กำหนดสิทธิ์การเข้าถึง</strong></td>
+                    <td>คุมความปลอดภัยการดู/แก้ไขระบบข้อมูล</td>
+                    <td>กลุ่มดิจิทัลฯ / เจ้าของระบบ</td>
+                    <td><span class="result-badge">**Access Matrix**</span></td>
+                  </tr>
+                  <tr data-month="5">
+                    <td>10</td>
+                    <td><span class="month-badge">เดือนที่ 5</span></td>
+                    <td><strong>เกณฑ์แลกเปลี่ยนข้อมูล</strong></td>
+                    <td>กำหนดขั้นตอนส่งต่อข้อมูลให้บุคคลภายนอก</td>
+                    <td>คณะทำงาน DG / Data Owner</td>
+                    <td><span class="result-badge">**Sharing Workflow**</span></td>
+                  </tr>
+                  <tr data-month="5">
+                    <td>11</td>
+                    <td><span class="month-badge">เดือนที่ 5</span></td>
+                    <td><strong>เกณฑ์คุณภาพข้อมูล</strong></td>
+                    <td>คัดกรองความถูกต้องและสมบูรณ์ของข้อมูล</td>
+                    <td>Data Owner / Data Steward</td>
+                    <td><span class="result-badge">**Quality Checklist**</span></td>
+                  </tr>
+                  <tr data-month="5">
+                    <td>12</td>
+                    <td><span class="month-badge">เดือนที่ 5-6</span></td>
+                    <td><strong>เกณฑ์จัดเก็บ/ทำลาย</strong></td>
+                    <td>กำหนดอายุการเก็บไฟล์ดิจิทัลและการลบ</td>
+                    <td>กลุ่มดิจิทัลฯ / กลุ่มบริหาร</td>
+                    <td><span class="result-badge">แนวทางการลบทำลาย</span></td>
+                  </tr>
+                  <tr data-month="6">
+                    <td>13</td>
+                    <td><span class="month-badge">เดือนที่ 6</span></td>
+                    <td><strong>ยกร่างนโยบายกลาง</strong></td>
+                    <td>ทำนโยบาย DG ของ สทร. เป็นทางการ</td>
+                    <td>เลขานุการฯ / กลุ่มดิจิทัลฯ</td>
+                    <td><span class="result-badge">**ร่างนโยบาย DG สทร.**</span></td>
+                  </tr>
+                  <tr data-month="6">
+                    <td>14</td>
+                    <td><span class="month-badge">เดือนที่ 6</span></td>
+                    <td><strong>ทำแผนปฏิบัติการรองรับ</strong></td>
+                    <td>สรุปแผนปฏิทินงานระบุงบในอนาคต</td>
+                    <td>เลขานุการฯ / กลุ่มกลยุทธ์</td>
+                    <td><span class="result-badge">แผนปฏิบัติงานที่ผ่านร่าง</span></td>
+                  </tr>
+                  <tr data-month="6">
+                    <td>15</td>
+                    <td><span class="month-badge">เดือนที่ 6-7</span></td>
+                    <td><strong>เสนออนุมัติบอร์ด</strong></td>
+                    <td>ยื่นเสนอบอร์ดอนุมัติบังคับใช้ระดับสถาบัน</td>
+                    <td>ประธาน / เลขานุการคณะทำงาน</td>
+                    <td><span class="result-badge">มติเห็นชอบการประกาศใช้</span></td>
+                  </tr>
+                  <tr data-month="6">
+                    <td>16</td>
+                    <td><span class="month-badge">ตามรอบงาน</span></td>
+                    <td><strong>ติดตามและรายงานผล</strong></td>
+                    <td>ตรวจสอบงานตกค้างรายงานผลต่อฝ่ายบริหาร</td>
+                    <td>เลขานุการฯ / ผู้รับผิดชอบ</td>
+                    <td><span class="result-badge">รายงานสรุปเสนอหัวหน้า</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 5: EXECUTIVE PROPOSALS -->
+      <section id="proposals-section" class="report-section">
+        <div class="section-card">
+          <div class="section-header">
+            <h2>5. ข้อเสนอแนะและประเด็นนำเสนอผู้บริหาร (Executive Proposals)</h2>
+            <span class="badge badge-error">นำเสนอเพื่ออนุมัติ</span>
+          </div>
+          <div class="section-body">
+            <p class="section-desc">ฝ่ายเลขานุการขอเสนอประเด็นพิจารณาสำคัญ **3 ประเด็นเร่งด่วน** เพื่อให้ความเห็นชอบเชิงนโยบายแก่ สทร.:</p>
+            
+            <div class="proposal-container">
+              <div class="proposal-item">
+                <div class="proposal-num">ประเด็นที่ 1</div>
+                <div class="proposal-content">
+                  <h4>การบูรณาการกรอบร่วม <span class="text-highlight">DGA</span> & <span class="text-accent-color">สกมช.</span></h4>
+                  <p>ขอความเห็นชอบใช้นโยบาย **DGA** เป็นแม่แบบหลักกฎหมายดิจิทัล และนำคู่มือความมั่นคงปลอดภัยของ **สกมช.** มาใช้ยกร่างโครงสร้างสิทธิ์การเข้าถึงข้อมูลโดยตรง เพื่อความรวดเร็วในการจัดทำเอกสารข้อบังคับ</p>
+                  <div class="status-action-tag">สถานะ: รอเสนอที่ประชุมเพื่อมีมติความเห็นชอบ</div>
+                </div>
+              </div>
+
+              <div class="proposal-item">
+                <div class="proposal-num">ประเด็นที่ 2</div>
+                <div class="proposal-content">
+                  <h4>การแต่งตั้งเจ้าหน้าที่ระดับปฏิบัติงาน <span class="text-highlight">Data Owner</span></h4>
+                  <p>ขออนุมัติให้ส่งหนังสือเวียนแจ้งทุกกลุ่มงาน แต่งตั้งบุคคลทำหน้าที่ **เจ้าของข้อมูล (Data Owner)** เพื่อร่วมทำสารบัญสำรวจข้อมูลวิจัยระบบรางภายในเดือนที่ 2 และ 3 ของแผนงาน</p>
+                  <div class="status-action-tag">สถานะ: ขอความเห็นชอบเพื่อออกหนังสือคำสั่งปฏิบัติ</div>
+                </div>
+              </div>
+
+              <div class="proposal-item">
+                <div class="proposal-num">ประเด็นที่ 3</div>
+                <div class="proposal-content">
+                  <h4>การกำหนดรอบส่งมอบรายงานความก้าวหน้า</h4>
+                  <p>เห็นชอบกำหนดการให้เลขานุการคณะทำงานฯ รายงานผลประเมินความคืบหน้าการจัดทำธรรมาภิบาลข้อมูลเสนอตรงต่อผู้บริหารระดับสูง **ทุกๆ สิ้นไตรมาส (ปีละ 4 ครั้ง)**</p>
+                  <div class="status-action-tag">สถานะ: ขออนุมัติความถี่และกรอบการรายงานผล</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+            
+            <h3 class="subsection-title">เอกสารและกรอบอ้างอิงหลัก</h3>
+            <ul class="references-list">
+              <li>
+                **ประกาศคณะกรรมการพัฒนารัฐบาลดิจิทัล** เรื่อง ธรรมาภิบาลข้อมูลภาครัฐ, ราชกิจจานุเบกษา (31 มี.ค. 2563)
+              </li>
+              <li>
+                **นโยบายธรรมาภิบาลข้อมูล (Data Governance Policy)** ของสำนักงานคณะกรรมการการรักษาความมั่นคงปลอดภัยไซเบอร์แห่งชาติ (สกมช.)
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Signature section for print only -->
+      <section class="print-signatures">
+        <div class="sig-container">
+          <div class="sig-box">
+            <p>เสนอความเห็นเบื้องต้นโดย</p>
+            <br><br>
+            <p>...........................................................</p>
+            <p>( ฝ่ายเลขานุการคณะทำงาน Data Governance )</p>
+            <p>วันที่ ......./......./.......</p>
+          </div>
+          <div class="sig-box">
+            <p>ข้อพิจารณา / อนุมัติการดำเนินงาน</p>
+            <br><br>
+            <p>...........................................................</p>
+            <p>( ผู้บริหารสถาบันวิจัยและพัฒนาเทคโนโลยีระบบราง )</p>
+            <p>วันที่ ......./......./.......</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
